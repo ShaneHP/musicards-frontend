@@ -5,7 +5,11 @@ export default function Player({ accessToken, trackUri }) {
     const [play, setPlay] = useState(false);
 
     useEffect(() => {
-        setPlay(true);
+        if (trackUri) {
+            setPlay(true);
+        } else {
+            setPlay(false);
+        }
     }, [trackUri]);
 
     if (!accessToken) return null;
